@@ -4,6 +4,7 @@ Ampliación del proyecto original (Internacionalización). Soporte para localiza
 # Pablo Fernández Álvarez
 
 ## Nota: 
+
 Este proyecto es una ampliación del proyecto de Internacionalización. Por ello, he añadido, dentro de cada apartado, un sub-apartado refiriendose 
 a la nueva funcionalidad de los subtítulos.
 
@@ -105,7 +106,7 @@ Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subt
 ## Subtítulos
 
 
-# Resultados obtenidos
+<!-- # Resultados obtenidos
 
 Hemos creado una escena de ejemplo donde se ve el resultado de todo lo implementado anteriormente.
 
@@ -159,4 +160,4 @@ Para facilitar la instalación de esta herramienta se ha creado un package de Un
 
 5- Si la instalación ha sido correcta, debería aparecer una opción en la barra del programa con todas las opciones de la herramienta.
 
-![STEP4](./readme/step4.png)
+![STEP4](./readme/step4.png) -->
