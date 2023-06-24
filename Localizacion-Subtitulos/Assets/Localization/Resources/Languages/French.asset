@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912cefff6bd0ea740a36ef54d7ec9cdd, type: 3}
+  m_Name: French
+  m_EditorClassIdentifier: 
+  texts:
+  - Key: Language
+    Value: "LANGUE: FRAN\xC7AIS"
+  - Key: Description
+    Value: "L'Angleterre est un pays situ\xE9 dans la partie sud de la Grande-Bretagne.
+      Sa capitale est Londres, un centre financier mondial et une destination touristique
+      populaire. L'Angleterre est connue pour sa riche histoire, y compris des sites
+      embl\xE9matiques comme Stonehenge et le palais de Buckingham, ainsi que pour
+      ses contributions \xE0 la litt\xE9rature, \xE0 la musique et aux sports. La
+      langue anglaise, qui est largement parl\xE9e dans le monde, est originaire
+      d'Angleterre. L'Angleterre a une population diversifi\xE9e et une \xE9conomie
+      forte, avec des industries telles que la finance, la sant\xE9 et la technologie.
+      Il est \xE9galement c\xE9l\xE8bre pour sa cuisine traditionnelle, notamment
+      le fish and chips et le th\xE9 de l'apr\xE8s-midi."
+  - Key: Title
+    Value: "D\xC9MO TECHNIQUE"
+  sprites:
+  - Key: Flag
+    Value: {fileID: 21300000, guid: 39cb65a0353d30e42b8e68e55c37f404, type: 3}
+  - Key: Default
+    Value: {fileID: 0}
+  - Key: Otra
+    Value: {fileID: 0}
+  - Key: Background
+    Value: {fileID: 21300000, guid: c2f56006c79eb194e834a1b95f1095b2, type: 3}
+  audios:
+  - Key: Anthem
+    Value: {fileID: 8300000, guid: 6de06d052c9236846bc2079be56eb58b, type: 3}
+  fonts:
+  - Key: New Key
+    Value: {fileID: 0}
+  tmpFonts:
+  - Key: Font
+    Value: {fileID: 0}
+  extrasInitialised: 1
+  extras:
+    currencySuffix: 1
+    currency: '@'
+    decimalSeparator: .

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912cefff6bd0ea740a36ef54d7ec9cdd, type: 3}
+  m_Name: Japan
+  m_EditorClassIdentifier: 
+  texts:
+  - Key: Language
+    Value: "\u8A00\u8A9E: \u82F1\u8A9E"
+  - Key: Description
+    Value: "\u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u306F\u3001\u30B0\u30EC\u30FC\u30C8\u30D6\u30EA\u30C6\u30F3\u5CF6\u306E\u5357\u90E8\u306B\u4F4D\u7F6E\u3059\u308B\u3002
+      \u9996\u90FD\u306F\u3001\u4E16\u754C\u306E\u91D1\u878D\u306E\u4E2D\u5FC3\u5730\u3067\u3042\u308A\u3001\u89B3\u5149\u5730\u3068\u3057\u3066\u3082\u4EBA\u6C17\u306E\u3042\u308B\u30ED\u30F3\u30C9\u30F3\u3067\u3059\u3002
+      \u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u306F\u3001\u30B9\u30C8\u30FC\u30F3\u30D8\u30F3\u30B8\u3084\u30D0\u30C3\u30AD\u30F3\u30AC\u30E0\u5BAE\u6BBF\u306A\u3069\u306E\u30E9\u30F3\u30C9\u30DE\u30FC\u30AF\u3092\u542B\u3080\u8C4A\u304B\u306A\u6B74\u53F2\u3068\u3001\u6587\u5B66\u3001\u97F3\u697D\u3001\u30B9\u30DD\u30FC\u30C4\u3078\u306E\u8CA2\u732E\u3067\u77E5\u3089\u308C\u3066\u3044\u307E\u3059\u3002
+      \u4E16\u754C\u4E2D\u3067\u5E83\u304F\u4F7F\u308F\u308C\u3066\u3044\u308B\u82F1\u8A9E\u306F\u3001\u30A4\u30AE\u30EA\u30B9\u3092\u8D77\u6E90\u3068\u3059\u308B\u3002
+      \u30A4\u30F3\u30B0\u30E9\u30F3\u30C9\u306F\u3001\u591A\u69D8\u306A\u4EBA\u53E3\u3092\u62B1\u3048\u3001\u91D1\u878D\u3001\u30D8\u30EB\u30B9\u30B1\u30A2\u3001\u30C6\u30AF\u30CE\u30ED\u30B8\u30FC\u306A\u3069\u306E\u7523\u696D\u304C\u76DB\u3093\u306A\u7D4C\u6E08\u5927\u56FD\u3067\u3059\u3002
+      \u307E\u305F\u3001\u30D5\u30A3\u30C3\u30B7\u30E5\uFF06\u30C1\u30C3\u30D7\u30B9\u3084\u30A2\u30D5\u30BF\u30CC\u30FC\u30F3\u30C6\u30A3\u30FC\u306A\u3069\u306E\u4F1D\u7D71\u7684\u306A\u6599\u7406\u3082\u6709\u540D\u3067\u3059\u3002"
+  - Key: Title
+    Value: "\u30C6\u30AF\u30CB\u30AB\u30EB\u30C7\u30E2"
+  sprites:
+  - Key: Flag
+    Value: {fileID: 21300000, guid: af8219a2d87b7f04ab835d07aaa8bc37, type: 3}
+  - Key: Default
+    Value: {fileID: 0}
+  - Key: Otra
+    Value: {fileID: 0}
+  - Key: Background
+    Value: {fileID: 21300000, guid: 005970d58cd70c5449749497267a2a72, type: 3}
+  audios:
+  - Key: Anthem
+    Value: {fileID: 8300000, guid: 2a2b5e31ee8ad03409048768e2ec7a53, type: 3}
+  fonts:
+  - Key: New Key
+    Value: {fileID: 12800000, guid: 1fbfbb91da474dc4492aca164b09b686, type: 3}
+  tmpFonts:
+  - Key: Font
+    Value: {fileID: 11400000, guid: bb2e97615cca1bf43801f80ff5add55d, type: 2}
+  extrasInitialised: 1
+  extras:
+    currencySuffix: 1
+    currency: "\xA5"
+    decimalSeparator: .

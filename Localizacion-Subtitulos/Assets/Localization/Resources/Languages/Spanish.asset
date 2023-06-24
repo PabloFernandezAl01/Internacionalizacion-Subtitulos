@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912cefff6bd0ea740a36ef54d7ec9cdd, type: 3}
+  m_Name: Spanish
+  m_EditorClassIdentifier: 
+  texts:
+  - Key: Language
+    Value: "IDIOMA: ESPA\xD1OL"
+  - Key: Description
+    Value: "Inglaterra es un pa\xEDs ubicado en la parte sur de Gran Breta\xF1a.
+      Su ciudad capital es Londres, un centro financiero mundial y un popular destino
+      tur\xEDstico. Inglaterra es conocida por su rica historia, incluidos lugares
+      emblem\xE1ticos como Stonehenge y el Palacio de Buckingham, as\xED como por
+      sus contribuciones a la literatura, la m\xFAsica y los deportes. El idioma
+      ingl\xE9s, que se habla ampliamente en todo el mundo, se origin\xF3 en Inglaterra.
+      Inglaterra tiene una poblaci\xF3n diversa y una econom\xEDa fuerte, con industrias
+      como finanzas, salud y tecnolog\xEDa. Tambi\xE9n es famoso por su cocina tradicional,
+      que incluye fish and chips y el t\xE9 de la tarde."
+  - Key: Title
+    Value: "DEMO T\xC9CNICA"
+  sprites:
+  - Key: Flag
+    Value: {fileID: 21300000, guid: 8d3c417bbf837124e97322ee38e1ba67, type: 3}
+  - Key: Default
+    Value: {fileID: 0}
+  - Key: Otra
+    Value: {fileID: 0}
+  - Key: Background
+    Value: {fileID: 21300000, guid: b7d31cea6e30a4e4aac2bbf14166dd14, type: 3}
+  audios:
+  - Key: Anthem
+    Value: {fileID: 8300000, guid: 0b7985baa16604448bb48501529664c7, type: 3}
+  fonts:
+  - Key: New Key
+    Value: {fileID: 0}
+  tmpFonts:
+  - Key: Font
+    Value: {fileID: 0}
+  extrasInitialised: 1
+  extras:
+    currencySuffix: 1
+    currency: '@'
+    decimalSeparator: .

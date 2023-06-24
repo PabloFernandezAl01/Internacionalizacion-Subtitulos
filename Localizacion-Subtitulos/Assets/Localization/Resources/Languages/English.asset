@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912cefff6bd0ea740a36ef54d7ec9cdd, type: 3}
+  m_Name: English
+  m_EditorClassIdentifier: 
+  texts:
+  - Key: Language
+    Value: 'LANGUAGE: ENGLISH'
+  - Key: Description
+    Value: England is a country located in the southern part of Great Britain. Its
+      capital city is London, a global financial center and popular tourist destination.
+      England is known for its rich history, including iconic landmarks such as Stonehenge
+      and Buckingham Palace, as well as its contributions to literature, music, and
+      sports. The English language, which is widely spoken around the world, originated
+      in England. England has a diverse population and a strong economy, with industries
+      such as finance, healthcare, and technology. It is also famous for its traditional
+      cuisine, including fish and chips and afternoon tea.
+  - Key: Title
+    Value: '@'
+  sprites:
+  - Key: Flag
+    Value: {fileID: 21300000, guid: 5c092709d053d354297a83f7d1e2c59f, type: 3}
+  - Key: Default
+    Value: {fileID: 0}
+  - Key: Otra
+    Value: {fileID: 0}
+  - Key: Background
+    Value: {fileID: 21300000, guid: 4078fac8896f65b48a7646172849bf14, type: 3}
+  audios:
+  - Key: Anthem
+    Value: {fileID: 8300000, guid: 7adc41497852af141a62deb84935f7b7, type: 3}
+  fonts:
+  - Key: New Key
+    Value: {fileID: 0}
+  tmpFonts:
+  - Key: Font
+    Value: {fileID: 0}
+  extrasInitialised: 1
+  extras:
+    currencySuffix: 0
+    currency: $
+    decimalSeparator: ','
