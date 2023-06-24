@@ -1,4 +1,4 @@
-# Localizacion-Subtitulos
+# Internacionalización-Subtitulos
 Ampliación del proyecto original (Internacionalización). Soporte para localizar subtítulos.
 
 # Pablo Fernández Álvarez
