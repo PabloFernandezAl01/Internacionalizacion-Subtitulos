@@ -42,6 +42,9 @@ MonoBehaviour:
   tmpFonts:
   - Key: Font
     Value: {fileID: 11400000, guid: bb2e97615cca1bf43801f80ff5add55d, type: 2}
+  subtitles:
+  - Key: Subtitles
+    Value: 
   extrasInitialised: 1
   extras:
     currencySuffix: 1

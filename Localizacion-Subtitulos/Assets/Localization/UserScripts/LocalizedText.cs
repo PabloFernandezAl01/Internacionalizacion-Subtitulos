@@ -11,7 +11,6 @@ namespace Localization
         private TMP_Text tmp = null;
         private Text text = null;
 
-
         public string FontKey = "";
 
         protected override void Initialise()

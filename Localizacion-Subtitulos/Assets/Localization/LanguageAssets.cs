@@ -27,32 +27,38 @@ namespace Localization
             return (obj1.Key == obj2.Key
                         && obj1.Value == obj2.Value);
         }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     [Serializable]
-    public class SpritePair : LocalizedKeyPair<Sprite>
-    {
-    }
+    public class SpritePair : LocalizedKeyPair<Sprite> {}
 
     [Serializable]
-    public class AudioClipPair : LocalizedKeyPair<AudioClip>
-    {
-    }
+    public class AudioClipPair : LocalizedKeyPair<AudioClip> {}
 
     [Serializable]
-    public class FontPair : LocalizedKeyPair<Font>
-    {
-    }
+    public class FontPair : LocalizedKeyPair<Font> {}
 
     [Serializable]
-    public class TMPFontPair : LocalizedKeyPair<TMP_FontAsset>
-    {
-    }
+    public class TMPFontPair : LocalizedKeyPair<TMP_FontAsset> {}
+
+    [Serializable]
+    public class SubtitlePair : StringPair { }
 
     public enum AssetType
     {
-        Text, Sprite, Audio, Font, FontTMP
+        Text, Sprite, Audio, Font, FontTMP, Subtitle
     }
+
 
     [CreateAssetMenu(fileName = "Language", menuName = "Localization/Language")]
     public class LanguageAssets : ScriptableObject
@@ -63,6 +69,7 @@ namespace Localization
         public List<AudioClipPair> audios;
         public List<FontPair> fonts;
         public List<TMPFontPair> tmpFonts;
+        public List<SubtitlePair> subtitles;
 
         public bool extrasInitialised;
         public LanguageExtras extras;
@@ -73,6 +80,7 @@ namespace Localization
             sprites = new();
             audios = new();
             fonts = new();
+            subtitles = new();
 
             extras = new LanguageExtras();
 
@@ -98,7 +106,6 @@ namespace Localization
                 bool exist = false;
                 foreach (var pair in texts)
                 {
-
                     if (pair == aux)
                     {
                         exist = true;
@@ -178,7 +185,17 @@ namespace Localization
             return dic;
         }
 
+        public Dictionary<string, string> CreateSubtitleDictionaty()
+        {
+            Dictionary<string, string> dic = new();
 
+            foreach (var st in subtitles)
+            {
+                dic.Add(st.Key, st.Value);
+            }
+
+            return dic;
+        }
 
     }
 
@@ -188,8 +205,6 @@ namespace Localization
     {
         public bool currencySuffix;
         public string currency;
-
         public string decimalSeparator;
-
     }
 }

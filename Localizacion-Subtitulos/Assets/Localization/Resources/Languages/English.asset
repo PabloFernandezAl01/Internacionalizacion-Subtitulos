@@ -44,6 +44,9 @@ MonoBehaviour:
   tmpFonts:
   - Key: Font
     Value: {fileID: 0}
+  subtitles:
+  - Key: Subtitles
+    Value: subtitles-en
   extrasInitialised: 1
   extras:
     currencySuffix: 0

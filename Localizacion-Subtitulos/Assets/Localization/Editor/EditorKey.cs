@@ -14,7 +14,6 @@ namespace Localization
         {
             Localization.EditorUtility.CloseWindow();
 
-
             foreach (var lang in languages)
             {
                 UnityEditor.EditorUtility.SetDirty(lang);
@@ -28,7 +27,6 @@ namespace Localization
         private void Awake()
         {
             titleContent.text = "Change keys and values";
-            //titleContent.image = Resources.Load("Localization/Globe") as Texture;
             minSize = new Vector2(400, 500);
             UpdateWindow();
 
@@ -72,7 +70,6 @@ namespace Localization
 
         private void OnGUI()
         {
-            // currentLanguage = EditorGUILayout.Popup("Language", currentLanguage, languages);
             Localization.EditorUtility.CreateIconTittle(position);
 
             GUILayout.BeginVertical();
@@ -81,17 +78,14 @@ namespace Localization
 
             GUILayout.EndVertical();
 
-
             DisplayLanguage(currentLanguage);
         }
 
         private bool ContainsKey(string key)
         {
-
             switch (assetType)
             {
                 case AssetType.Text:
-
                     for (int i = 0; i < languages[0].texts.Count; i++)
                     {
                         if (languages[0].texts[i].Key == key)
@@ -99,8 +93,8 @@ namespace Localization
                     }
 
                     break;
-                case AssetType.Sprite:
 
+                case AssetType.Sprite:
                     for (int i = 0; i < languages[0].sprites.Count; i++)
                     {
                         if (languages[0].sprites[i].Key == key)
@@ -117,8 +111,8 @@ namespace Localization
                     }
 
                     break;
-                case AssetType.Font:
 
+                case AssetType.Font:
                     for (int i = 0; i < languages[0].fonts.Count; i++)
                     {
                         if (languages[0].fonts[i].Key == key)
@@ -132,6 +126,15 @@ namespace Localization
                     for (int i = 0; i < languages[0].tmpFonts.Count; i++)
                     {
                         if (languages[0].tmpFonts[i].Key == key)
+                            return true;
+                    }
+
+                    break;
+
+                case AssetType.Subtitle:
+                    for (int i = 0; i < languages[0].subtitles.Count; i++)
+                    {
+                        if (languages[0].subtitles[i].Key == key)
                             return true;
                     }
 
@@ -165,6 +168,9 @@ namespace Localization
                         break;
                     case AssetType.FontTMP:
                         lang.tmpFonts.Add(new TMPFontPair { Key = key, Value = null });
+                        break;
+                    case AssetType.Subtitle:
+                        lang.subtitles.Add(new SubtitlePair { Key = key, Value = null });
                         break;
                 }
 
@@ -234,6 +240,18 @@ namespace Localization
                             }
 
                         break;
+
+                    case AssetType.Subtitle:
+
+                        for (int i = lang.subtitles.Count - 1; i >= 0; i--)
+
+                            if (lang.subtitles[i].Key == key)
+                            {
+                                lang.subtitles.Remove(lang.subtitles[i]);
+                                break;
+                            }
+
+                        break;
                 }
 
             }
@@ -241,7 +259,6 @@ namespace Localization
 
         private void DisplayLanguage(int idx)
         {
-
             if (idx == 0)
             {
                 GUILayout.BeginHorizontal();
@@ -307,6 +324,14 @@ namespace Localization
                     }
 
                     break;
+                case AssetType.Subtitle:
+
+                    foreach (var st in languages[idx].subtitles)
+                    {
+                        ShowKeysString(st, keysToRemove);
+                    }
+
+                    break;
             }
 
             foreach (var spr in keysToRemove)
@@ -334,13 +359,14 @@ namespace Localization
             GUILayout.EndHorizontal();
         }
 
+       
         private void ShowKeys<T>(LocalizedKeyPair<T> keypair, List<string> keysToRemove) where T : Object
         {
             GUILayout.BeginHorizontal();
 
             GUILayout.Label(keypair.Key);
 
-            T value = EditorGUILayout.ObjectField(keypair.Value, typeof(T), false) as T;
+            T value = EditorGUILayout.ObjectField(keypair.Value, typeof(T), true) as T;
 
             if (value != keypair.Value)
             {

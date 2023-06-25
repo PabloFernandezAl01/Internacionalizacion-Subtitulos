@@ -15,6 +15,7 @@ namespace Localization
         public Dictionary<string, AudioClip> audio { get; private set; }
         public Dictionary<string, Font> font { get; private set; }
         public Dictionary<string, TMP_FontAsset> TMPfont { get; private set; }
+        public Dictionary<string, string> subtitles { get; private set; }
 
         public LanguageDictionaries(LanguageAssets language)
         {
@@ -23,6 +24,7 @@ namespace Localization
             audio = language.CreateAudioDictionaty();
             font = language.CreateFontDictionaty();
             TMPfont = language.CreateTMPFontDictionaty();
+            subtitles = language.CreateSubtitleDictionaty();
         }
 
     }
@@ -46,7 +48,7 @@ namespace Localization
             }
         }
 
-        //Esta llamada a la instancia no la crea en caso de que no exista
+        // Esta llamada a la instancia no la crea en caso de que no exista
         public static LocalizationManager TryGetInstance
         {
             get
@@ -66,8 +68,6 @@ namespace Localization
         public static void Init()
         {
             Instance = new LocalizationManager();
-
-
         }
 
         private LocalizationManager()
@@ -249,6 +249,21 @@ namespace Localization
                     return spr;
 
                 return defaultAssets.sprites[key];
+            }
+
+            return null;
+        }
+
+        public string GetSubtitle(string key)
+        {
+            if (languageAssets.subtitles.ContainsKey(key))
+            {
+                string sub = languageAssets.subtitles[key];
+
+                if (sub != "")
+                    return sub;
+
+                return defaultAssets.subtitles[key];
             }
 
             return null;
