@@ -45,6 +45,8 @@ MonoBehaviour:
   subtitles:
   - Key: Subtitles
     Value: 
+  - Key: Aran
+    Value: 
   extrasInitialised: 1
   extras:
     currencySuffix: 1

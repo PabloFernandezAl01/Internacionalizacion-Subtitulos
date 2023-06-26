@@ -47,7 +47,9 @@ MonoBehaviour:
     Value: {fileID: 0}
   subtitles:
   - Key: Subtitles
-    Value: 
+    Value: sub-es.srt
+  - Key: Aran
+    Value: aran-es.srt
   extrasInitialised: 1
   extras:
     currencySuffix: 1

@@ -7,7 +7,6 @@ using System.Linq;
 
 namespace Localization
 {
-
     class LanguageDictionaries
     {
         public Dictionary<string, string> text { get; private set; }

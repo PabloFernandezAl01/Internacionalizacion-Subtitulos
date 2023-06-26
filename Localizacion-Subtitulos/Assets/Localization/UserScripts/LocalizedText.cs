@@ -33,7 +33,7 @@ namespace Localization
 
                 if (FontKey != "")
                 {
-                    text.font = LocalizationManager.Instance.GetFont(FontKey); ;
+                    text.font = LocalizationManager.Instance.GetFont(FontKey);
                 }
             }
 

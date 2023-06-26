@@ -1,8 +1,15 @@
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Esta clase se utiliza para representar la informacion
+ * de una linea de subtitulos. Contiene informacion como
+ * el los momentos de inicio y fin en los que la linea 
+ * se debe mostrar, la línea en sí, etc.
+ */
 public class Subtitle
 {
     public int sequenceNumber;
@@ -19,77 +26,128 @@ public class Subtitle
     }
 }
 
+/*
+ * El objetivo de este componente es hacer de motor de subtitulos.
+ * No depende de la herramienta de internacionalización.
+ * 
+ * En caso de ser usado con la herramienta de internacionalización, 
+ * el atributo y "fileName" será inicializado por el LocalizationManager,
+ * quien tendrá la el valor correspondiente al idioma actual.
+ */
+
 public class SubtitlesManager : MonoBehaviour
 {
-    [SerializeField] string file;
-    public Text subtitlesText;
-    private Subtitle[] subtitles;
-    private Coroutine displaySubtitlesCoroutine;
 
-    void Start()
+    // Nombre del fichero de configuracion para los subtitulos
+    public string fileName;
+
+    // Ruta de los archivos de subtitulos
+    [SerializeField] string subtitlesFilesPath;
+
+    // Texto en la UI donde van a aparecer los subtitulos
+    private Text subtitlesText;
+
+    // Atributos para la lógica del motor
+    private Subtitle[] subtitles;
+
+    // Intervalo de tiempo en el que se recogen los subtitulos
+    // Por ejemplo, si es 5 segundos y hay un subtitulo en el segundo 1
+    // y otro en el segundo 4, se mostrarán los dos a la vez. Pero en caso
+    // de que el segundo se encuentre en el segundo 6, solo se mostrará
+    // el primero.
+    [SerializeField] float timeInterval;
+
+    // Bool para indicar si los subtitulos se están mostrando
+    // Es decir, si el audio se está reproduciendo
+    private bool active;
+
+    private float timeSinceAudioStarted;
+
+    private int currentSubtitleIdx;
+
+    private void Start()
     {
-        // Cargar el archivo de subtítulos
-        LoadSubtitles(file);
+        subtitlesText = GetComponent<Text>();
+
+        LoadSubtitles();
+
+        BeginSubtitles();
     }
 
-    void LoadSubtitles(string filePath)
+    private void Update()
     {
+        if (active)
+        {
+            timeSinceAudioStarted += Time.deltaTime;
+
+            if (timeSinceAudioStarted >= subtitles[currentSubtitleIdx].startTime)
+            {
+                subtitlesText.text = subtitles[currentSubtitleIdx].text;
+
+                if (timeSinceAudioStarted >= subtitles[currentSubtitleIdx].endTime)
+                {
+                    currentSubtitleIdx++;
+                    subtitlesText.text = "";
+                }
+            }
+        }
+
+
+    }
+
+    public void LoadSubtitles()
+    {
+        string path = subtitlesFilesPath + fileName;
+
+        if (!File.Exists(path)) return;
+
         // Leer el archivo de subtítulos
-        string[] lines = File.ReadAllLines("Assets/Resources/Subtitles/" + filePath);
+        string[] lines = File.ReadAllLines(subtitlesFilesPath + fileName);
 
         // Crear un arreglo para almacenar los subtítulos
-        subtitles = new Subtitle[lines.Length / 4];
+        subtitles = new Subtitle[lines.Length / 4 + 1];
 
-        // Procesar cada línea del archivo
-        for (int i = 0, j = 0; i < lines.Length; i += 4, j++)
+        for (int i = 0, j = 0; i < lines.Length; i+= 4, j++)
         {
             // Obtener el número de secuencia
             int sequenceNumber = int.Parse(lines[i]);
 
-            // Obtener los tiempos de inicio y fin
-            string[] timeValues = lines[i + 1].Split(new char[] { '-', '>', ':', ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-            float startTime = float.Parse(timeValues[0]) * 60 + float.Parse(timeValues[1]) + float.Parse(timeValues[2]) / 1000f;
-            float endTime = float.Parse(timeValues[3]) * 60 + float.Parse(timeValues[4]) + float.Parse(timeValues[5]) / 1000f;
+            string times = lines[i + 1];
 
-            // Obtener el texto del subtítulo
-            string subtitleText = lines[i + 2];
+            // Divide la cadena en tiempo inicial y tiempo final
+            string[] tiempos = times.Split(new string[] { " --> " }, StringSplitOptions.RemoveEmptyEntries);
 
-            // Verificar si hay suficiente espacio en el arreglo
-            if (j < subtitles.Length)
-            {
-                // Crear el objeto de subtítulo
-                subtitles[j] = new Subtitle(sequenceNumber, startTime, endTime, subtitleText);
-            }
-            else
-            {
-                Debug.LogError("Índice de subtítulo fuera de los límites del arreglo: " + j);
-            }   
+            // Reemplaza la coma por un punto en ambos tiempos para que TimeSpan reciba el string de texto bien formateado
+            tiempos[0] = tiempos[0].Replace(",", ".");
+            tiempos[1] = tiempos[1].Replace(",", ".");
+
+            // Parsea los tiempos en formato TimeSpan
+            TimeSpan tiempoInicial = TimeSpan.Parse(tiempos[0]);
+            TimeSpan tiempoFinal = TimeSpan.Parse(tiempos[1]);
+
+            // Convierte los tiempos a segundos
+            float startTime = (float) tiempoInicial.TotalSeconds;
+            float endTime = (float) tiempoFinal.TotalSeconds;
+
+            string text = lines[i + 2];
+
+            subtitles[j] = new Subtitle(sequenceNumber, startTime, endTime, text);
+
         }
+
     }
 
-
-    public void PlaySubtitles()
+    public void BeginSubtitles()
     {
-        if (displaySubtitlesCoroutine != null)
-        {
-            StopCoroutine(displaySubtitlesCoroutine);
-        }
+        active = true;
 
-        displaySubtitlesCoroutine = StartCoroutine(DisplaySubtitles());
+        timeSinceAudioStarted = 0.0f;
+        currentSubtitleIdx = 0;
     }
 
-    IEnumerator DisplaySubtitles()
+    public void EndSubtitles()
     {
-        foreach (Subtitle subtitle in subtitles)
-        {
-            subtitlesText.text = subtitle.text;
-
-            // Esperar hasta que sea el momento de mostrar el siguiente subtítulo
-            yield return new WaitForSeconds(subtitle.endTime - subtitle.startTime);
-        }
-
-        // Borrar el texto de los subtítulos al finalizar
-        subtitlesText.text = "";
+        active = false;
     }
 
 }

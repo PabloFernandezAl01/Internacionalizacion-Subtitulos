@@ -1,21 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 namespace Localization
 {
-
     public class LocalizedSubtitles : Localizable
     {
+        private SubtitlesManager subManager;
+
         protected override void Initialise()
         {
-           // string fileContent = File.ReadAllText(LocalizationManager.Instance.GetSubtitle(key));
+            subManager = GetComponent<SubtitlesManager>();
+
+            if (!subManager)
+                Debug.LogError("La entidad no contiene ningun componente de tipo SubtitlesManager");
         }
 
         protected override void Localize()
         {
-            //throw new System.NotImplementedException();
+            string configurationFile = LocalizationManager.Instance.GetSubtitle(key);
+
+            subManager.fileName = configurationFile;
+
+            subManager.LoadSubtitles();
+
         }
     }
 
