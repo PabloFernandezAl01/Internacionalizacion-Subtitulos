@@ -63,6 +63,8 @@ MonoBehaviour:
   audios:
   - Key: Anthem
     Value: {fileID: 8300000, guid: a0ba98358617d1049ae3aa1e3e28a100, type: 3}
+  - Key: Subtitles-Audio
+    Value: {fileID: 0}
   fonts:
   - Key: New Key
     Value: {fileID: 0}
@@ -70,9 +72,7 @@ MonoBehaviour:
   - Key: Font
     Value: {fileID: 11400000, guid: 604fc7e096196424aa91cca400a29586, type: 2}
   subtitles:
-  - Key: Subtitles
-    Value: 
-  - Key: Aran
+  - Key: Example
     Value: 
   extrasInitialised: 1
   extras:

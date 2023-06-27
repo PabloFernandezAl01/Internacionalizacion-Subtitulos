@@ -4,13 +4,13 @@ namespace Localization
 {
     public class LocalizedSubtitles : Localizable
     {
-        private SubtitlesManager subManager;
+        private Subtitles subtitles;
 
         protected override void Initialise()
         {
-            subManager = GetComponent<SubtitlesManager>();
+            subtitles = GetComponent<Subtitles>();
 
-            if (!subManager)
+            if (!subtitles)
                 Debug.LogError("La entidad no contiene ningun componente de tipo SubtitlesManager");
         }
 
@@ -18,9 +18,11 @@ namespace Localization
         {
             string configurationFile = LocalizationManager.Instance.GetSubtitle(key);
 
-            subManager.fileName = configurationFile;
+            subtitles.SetSubtitlesFile(configurationFile);
 
-            subManager.LoadSubtitles();
+            subtitles.LoadSubtitles();
+
+            subtitles.BeginSubtitles();
 
         }
     }

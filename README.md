@@ -3,12 +3,7 @@ Ampliación del proyecto original (Internacionalización). Soporte para localiza
 
 # Pablo Fernández Álvarez
 
-## Nota: 
-
-Este proyecto es una ampliación del proyecto de Internacionalización. Por ello, he añadido, dentro de cada apartado, un sub-apartado refiriendose 
-a la nueva funcionalidad de los subtítulos.
-
-# Resumen
+# Resumen 
 
 Crear una herramienta de internacionalización y localización, en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
 
@@ -29,7 +24,7 @@ El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 	+ La posición de los subtítulos debe ser estática y ubicarse en la parte inferior central de la pantalla. En caso de 
 	haber efectos sonores se indicará en la parte superior derecha.
 	+ No se deben mostrar más de dos o tres (en caso excepcionales) líneas al mismo tiempo. Además, las líneas deben contener
-	como máximo de 37 caracteres.
+	entre 37 y 40 caracteres.
 	+ Los subtítulos deben tener un tamaño de tal forma que sean legibles a 2,5 metros de la pantalla.
 	+ Por cuestiones de visibilidad, está permitido usar un caja para los subtítulos para crear contraste con el color del fondo.
 
@@ -61,30 +56,9 @@ El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 
 # Motivación y objetivos
 
-En clase hemos hablado de la internacionalización y la localización pero no hemos llegado a desarrollar nada sobre ello por lo que nos pareció interesante el desarrollo de esta herramienta. Los juegos que no se adaptan a las preferencias culturales y lingüísticas de los jugadores locales pueden no ser bien recibidos, lo que puede reducir la demanda del juego y afectar negativamente las ventas, por ello pensamos que estos son procesos críticos para la industria del videojuego y de ahí su importancia. 
-Hemos decidido hacerla en Unity para aprovechar sus características en el desarrollo, como por ejemplo no tener que desarrollar nosotros una interfaz gráfica. Si bien es cierto que Unity tiene ya su propio sistema de localización bastante completo hemos preferido empezar el nuestro desde cero y centrarnos en lo que sería el desarrollo del sistema de localización en vez de hacer extensiones a uno ya existente. 
-
-Una ventaja adicional que tendrá nuestro sistema con respecto al de Unity es que podremos elegir qué idiomas utilizar. Unity tiene por defecto una lista bastante amplia de idiomas pero está limitado ya que no se puede ampliar. Esto puede suponer un problema ya que por ejemplo Unity no distingue entre español y español latino. Esto para la localización e internacionalización puede suponer un problema pero también para los desarrolladores que quieran sacar sus juegos en consolas (de esto último no podemos entrar más en detalle debido a haber firmado un NDA).
-
-Otra ventaja que creemos que tiene nuestro sistema con respecto al de Unity es que al poder elegir nosotros los idiomas que se utilicen también podemos generar valores que no tengan porqué ser un idioma como tal. Por ejemplo, podríamos desarrollar un idioma con una versión infantil donde todas las palabras malsonantes sean sustituidas por algo más suave por ejemplo generando los idiomas ‘Spanish’ y ‘Spanish_kids’.
-
-Lo que esperamos conseguir con este sistema de internacionalización es una herramienta robusta con la cual se puedan localizar juegos en Unity de una forma sencilla para los desarrolladores. Sin tener que manejar por nuestra cuenta ficheros adicionales y con una interfaz entendible y cómoda. Para ello utilizaremos las herramientas que nos proporciona Unity para extender su editor y poder crear nuestras propias ventanas a través de las cuales poder generar la información necesaria para la internacionalización.
-
-Las ventanas que se generen estarán separadas por funcionalidad. Por lo que las ventanas que queremos que haya serán:
- - Ventana general: desde esta ventana se establecen los idiomas del juego y cuál será el idioma por defecto.
- - Ventanas de clave-valores: desde estas ventanas se establecen las claves y valores del juego. Se pueden generar nuevos, eliminar las que haya, o editar las claves para cada idioma. Habrá una ventana para textos, una para imágenes, otra para sonidos y otra para subtítulos. 
- 
-Los objetivos específicos del proyecto incluyeron: 
- - Desarrollar una herramienta que permita la gestión de diferentes idiomas y sus respectivas traducciones. 
- - Implementar esta herramienta en la plataforma Unity para permitir la integración de las traducciones en videojuegos. 
- - Crear una interfaz de usuario intuitiva que permita a los desarrolladores gestionar fácilmente los diferentes idiomas y sus traducciones.
- - Desarrollar una arquitectura modular y escalable que permita la integración de nuevas funcionalidades en el futuro y que ayude al rendimiento del videojuego.
-
- ## Subtítulos
-
 Los subtítulos cumplen varias funciones importantes en los videojuegos:
 
-- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esto tarea resulta más sencilla
+- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esta tarea resulta más sencilla
 que crear archivos de audio adaptados a cada región, con lo que ello supone (contratar actores de doblaje por cada región, por ejemplo). De esta forma, 
 el usuario puede entender el gameplay con los archivos de audio originales, es decir, aquellos creados en la región donde se desarrolló el videojuego, y
 por lo tanto, en el idioma usado en dicha región. Es verdad que el idioma de los audios no tiene porqué coincidir con el idioma de la región donde 
@@ -100,10 +74,10 @@ permiten que las personas con dificultades para escuchar o con pérdida auditiva
 
 # Detalles de diseño/implementación
 
-He suprimido los detalles de implementación y diseño de la internacionalización.
-Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subtítulos, audio, imágenes)
+Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subtítulos, audio, imágenes).
 
-## Subtítulos
+Para ello, he ampliado el sistema de internacionalización de la siguiente manera:
+
 
 
 <!-- # Resultados obtenidos

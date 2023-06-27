@@ -144,7 +144,7 @@ namespace Localization
         private void loadLanguage(string lang, int ind)
         {
 
-            Dictionary<string, string> dict = new();
+            Dictionary<string, string> dict = new Dictionary<string, string>();
 
             StreamReader reader = new StreamReader(Application.dataPath + "/Localization/CSV/" + lang);
 

@@ -76,11 +76,11 @@ namespace Localization
 
         public void Init()
         {
-            texts = new();
-            sprites = new();
-            audios = new();
-            fonts = new();
-            subtitles = new();
+            texts = new List<StringPair>();
+            sprites = new List<SpritePair>();
+            audios = new List<AudioClipPair>();
+            fonts = new List<FontPair>();
+            subtitles = new List<SubtitlePair>();
 
             extras = new LanguageExtras();
 
@@ -121,7 +121,7 @@ namespace Localization
 
         public Dictionary<string, string> CreateTextDictionaty()
         {
-            Dictionary<string, string> dic = new();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
 
             foreach (var txt in texts)
             {
@@ -136,7 +136,7 @@ namespace Localization
 
         public Dictionary<string, Sprite> CreateImageDictionaty()
         {
-            Dictionary<string, Sprite> dic = new();
+            Dictionary<string, Sprite> dic = new Dictionary<string, Sprite>();
 
             foreach (var spr in sprites)
             {
@@ -149,7 +149,7 @@ namespace Localization
 
         public Dictionary<string, AudioClip> CreateAudioDictionaty()
         {
-            Dictionary<string, AudioClip> dic = new();
+            Dictionary<string, AudioClip> dic = new Dictionary<string, AudioClip>();
 
             foreach (var aud in audios)
             {
@@ -162,7 +162,7 @@ namespace Localization
 
         public Dictionary<string, Font> CreateFontDictionaty()
         {
-            Dictionary<string, Font> dic = new();
+            Dictionary<string, Font> dic = new Dictionary<string, Font>();
 
             foreach (var ft in fonts)
             {
@@ -175,7 +175,7 @@ namespace Localization
 
         public Dictionary<string, TMP_FontAsset> CreateTMPFontDictionaty()
         {
-            Dictionary<string, TMP_FontAsset> dic = new();
+            Dictionary<string, TMP_FontAsset> dic = new Dictionary<string, TMP_FontAsset>();
 
             foreach (var ft in tmpFonts)
             {
@@ -187,7 +187,7 @@ namespace Localization
 
         public Dictionary<string, string> CreateSubtitleDictionaty()
         {
-            Dictionary<string, string> dic = new();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
 
             foreach (var st in subtitles)
             {

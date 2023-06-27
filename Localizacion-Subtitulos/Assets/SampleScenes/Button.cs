@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Button : MonoBehaviour
 {
     public static void ChangeLanguage(int value)
     {
-        Localization.LocalizationManager.Instance.ChangeLanguage((Localization.Language)value);
+        Localization.LocalizationManager m = Localization.LocalizationManager.Instance;
+        Localization.Language l = (Localization.Language)value;
+
+        if (m.GetCurrentLanguage() != l)
+            m.ChangeLanguage(l);
+
     }
 }
