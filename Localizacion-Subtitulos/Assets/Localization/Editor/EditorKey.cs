@@ -277,7 +277,7 @@ namespace Localization
             }
 
 
-            List<string> keysToRemove = new();
+            List<string> keysToRemove = new List<string>();
 
             switch (assetType)
             {

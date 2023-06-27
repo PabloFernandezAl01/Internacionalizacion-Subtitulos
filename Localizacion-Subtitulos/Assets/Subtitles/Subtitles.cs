@@ -26,15 +26,22 @@ public class Subtitles : MonoBehaviour
     // Texto en la UI donde van a aparecer los subtitulos 
     [SerializeField] Text subtitlesText;
 
+    // Recuadro de fondo necesario para representar los subtitulos 
+    // en caso de mala visibilidad
+    [SerializeField] UnityEngine.UI.Image subImage;
+
     // Texto en la UI donde van a aparecer los subtitulos especiales
     // Con subtitulos especiales me refiero a los efectos sonoros, musica y canciones 
     [SerializeField] Text specialSubtitlesText;
+
+    // Recuadro de fondo necesario para representar los subtitulos especiales
+    [SerializeField] UnityEngine.UI.Image specialSubImage;
 
     // Estructura de datos para almacenar el contenido del JSON
     private SubtitleData data;
 
 
-        // Atributos para la lógica del motor
+    // Atributos para la lógica del motor
 
         // Array de subtítulos
         private Subtitle[] subtitles;
@@ -62,8 +69,7 @@ public class Subtitles : MonoBehaviour
 
     private void Start()
     {
-        subtitlesText.text = "";
-        specialSubtitlesText.text = "";
+        resetSubtitles();
     }
 
     private void Update()
@@ -164,7 +170,9 @@ public class Subtitles : MonoBehaviour
     }
 
     private void changeTextToCurrentSubtitleConfiguration()
-    {   
+    {
+        resetSubtitles();
+
         // Se obtiene el texto del subtitulo actual
         string text = subtitles[currentSubtitleIdx].text;
 
@@ -178,10 +186,10 @@ public class Subtitles : MonoBehaviour
             // Se asigna a los subtitulos especiales el texto del subtitulo actual y color de sonidos, musica y canciones
             specialSubtitlesText.text = text;
             specialSubtitlesText.color = SubtitlesColors.soundColor;
-            specialSubtitlesText.resizeTextForBestFit = true;
 
-            // Se borra el contenido de los subtitulos normales
-            subtitlesText.text = "";
+            // En caso de ser un subtitulo con poca visibilidad se aplica fondo con un color de contraste
+            if (data.visibility.Contains(idx))
+                specialSubImage.enabled = true;
 
             return;
         }
@@ -191,13 +199,13 @@ public class Subtitles : MonoBehaviour
             // Si es un subtitulo normal
             string speaker = "Speaker" + (i + 1).ToString();
             if (data.characters[i][speaker].subtitles.Contains(idx))
-            {   
-                // Se borra el contenido de los subtitulos especiales
-                specialSubtitlesText.text = "";
-
+            {
                 // Se asigna a los subtitulos normales el texto del subtitulo actual
                 subtitlesText.text = text;
-                subtitlesText.resizeTextForBestFit = true;
+
+                // En caso de ser un subtitulo con poca visibilidad se aplica fondo con un color de contraste
+                if (data.visibility.Contains(idx))
+                    subImage.enabled = true;
 
                 int priority = data.characters[i][speaker].priority;
 
@@ -211,6 +219,14 @@ public class Subtitles : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void resetSubtitles()
+    {
+        subtitlesText.text = "";
+        specialSubtitlesText.text = "";
+        subImage.enabled = false;
+        specialSubImage.enabled = false;
     }
 
     public void BeginSubtitles()

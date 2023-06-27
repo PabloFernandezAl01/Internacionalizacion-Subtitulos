@@ -6,6 +6,7 @@ using UnityEngine;
 public class SubtitleData
 {
     public List<int> sounds;
+    public List<int> visibility;
     public int nSubtitles;
     public List<Dictionary<string, SpeakerData>> characters;
     public string file;
