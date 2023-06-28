@@ -134,21 +134,21 @@ Como se puede ver, es un conjunto de bloques con 3 componentes:
 - Indice de bloque: Número entero que representa el bloque actual (Comienza en 1, no en 0)
 - Tiempos de inicio y fin: Representan los tiempos en los que el texto debe ser mostrado. Formato HH:MM:SS,mmm --> HH:MM:SS,mmm.
 - Texto del subtítulo: Contenido del súbtitulo. Debe acotar la norma de súbtitulos:
-		+ Deben haber entre 1 y 3 líneas
-		+ Cada línea debe contener como máximo 40 caracteres 
-		+ Se deben mostrar aproximadamente 15 caracteres por segundo
-		(Esto se calcula dividiendo el número de caracteres total entre el número
-		de segundos del archivo de audio correspondiente)
-		+ En caso de ser un subtitulo especial (efectos sonoros, musica o canciones)
-		debe seguir el siguiente formato --> [Subtítulo especial]. Es decir,
-		entre llaves y con la primera letra en mayúscula.
+	- Deben haber entre 1 y 3 líneas
+	- Cada línea debe contener como máximo 40 caracteres 
+	- Se deben mostrar aproximadamente 15 caracteres por segundo
+	(Esto se calcula dividiendo el número de caracteres total entre el número
+	de segundos del archivo de audio correspondiente)
+	- En caso de ser un subtitulo especial (efectos sonoros, musica o canciones)
+	debe seguir el siguiente formato --> [Subtítulo especial]. Es decir,
+	entre llaves y con la primera letra en mayúscula.
 
 Este formato contiene bastante información pero no la suficiente para representar
 los subtítulos siguiendo todos los requisitos de la norma. Por ejemplo, faltan
 marcar aquellos subtítulos con mala visibilidad o que subtitulo dice cada personaje.
 Para ello, he creado un nuevo fichero para subtítulos (JSON) que contiene esta información.
 
-Un ejemplo de este fichero JSON:
+Un ejemplo de este fichero JSON:	
 
 ![JSON](./readme/json.PNG)
 
