@@ -145,7 +145,7 @@ Como se puede ver, es un conjunto de bloques con 3 componentes:
 
 Este formato contiene bastante información pero no la suficiente para representar
 los subtítulos siguiendo todos los requisitos de la norma. Por ejemplo, faltan
-marcar aquellos subtítulos con mala visibilidad o que subtitulo dice cada personaje.
+marcar aquellos subtítulos con mala visibilidad o que subtítulo pertenece a cada personaje.
 Para ello, he creado un nuevo fichero para subtítulos (JSON) que contiene esta información.
 
 Un ejemplo de este fichero JSON:	
@@ -159,65 +159,40 @@ dice cada personaje... etc.
 - Visibilty: Array con los indices de bloque de los subtítulos que tienen mala visibilidad.
 - NSubtitles: Número de subtitulos total.
 - Characteres: Array de "Speakers". Personajes que participan en una conversación.
-	- Subtitles: Array de indices de bloque de dice el Speaker
+	- Subtitles: Array de indices de bloque de los subtitulos que pertenecen al Speaker.
 	- Priority: Indice para representar que color de subtitulo pertenece a cada Speaker.
 - File: Fichero (.srt) correspondiente.
 
 # Workflow
 
+El workflow es parecido al del resto de elementos localizables.
 
-<!-- # Resultados obtenidos
+Una vez se tenga el fichero de audio y el fichero de subítulos correspondiente (.srt),
+se debe crear un JSON con la misma forma que el explicado anteriormente.
+Después, en la pestaña del editor Localization/KeyCreator/Audio se debe crear una clave y añadir
+el fichero de audio para el idioma correspondiente. Por otra parte, en la pestaña
+Localization/KeyCreator/Subtitles, se debe escribir el nombre del fichero JSON correspondiente.
 
-Hemos creado una escena de ejemplo donde se ve el resultado de todo lo implementado anteriormente.
+En la escena, se debe añadir a la misma entidad el componente Subtitles y LocalizedSubtitles:
 
-## Paquete en el editor
+![COMP](./readme/comp.PNG)
 
-Dentro del editor se puede observar el apartado Localization, desde el que se puede controlar los distintos aspectos de la herramienta: las claves, los distintos idiomas,  algunos extras como la moneda, y el apartado Scene Utility para poder cambiar el idioma  de toda la escena de forma fácil.
-
-![IMG1](./readme/editor.png)
-
-Para usar la herramienta será necesario acoplar un componente que implemente la clase Localizable al objeto en cuestión (Ej: un texto), para así poder indicar qué claves queremos que siga.
-
-![IMG2](./readme/component.png)
-
-## KeyCreators
-Todos los KeyCreators tendrán un aspecto similar al de la imagen. Arriba encontramos los distintos idiomas que tengamos preparados en nuestra herramienta, y abajo tanto las claves como los valores del asset que queramos modificar (texto, sprite, audio, fuente…). Además podemos tanto crear como eliminar claves a nuestro antojo,
-
-![KEYCREATOR](./readme/keyCreator.png)
+# Resultados obtenidos
 
 ## Escena de prueba
-Hemos preparado una escena de prueba donde se ve el funcionamiento de la herramienta.
 
-Aquí un video de su funcionamiento:
-https://drive.google.com/file/d/1_1upkUEl4Izr0-WY_2NRMupvfiDILCtu/view?usp=sharing 
+En la escena de prueba, hay un audio/grabación de voz por cada idioma,
+(Inglés, Español, Francés, Ruso y Japonés) con su fichero de configuración
+de subtítulos JSON correspondiente. 
 
-![ESCENAPRUEBA](./readme/escenaPrueba.png)
+Se recomienda probar cada audio cambiando el idioma por defecto en la pestaña
+Localizaction/Languages y ejecutando el juego.
+
+Puede que algún subtítulo no este sincronizado a la perfección. He utilizado
+una herramienta para generar .(srt) a partir de un audio pero no es muy precisa.
+
+## Video demostracion
 
 # Conclusiones
 
-Hemos conseguido realizar lo que teníamos pensado, de una forma bastante completa. Hemos podido incluso añadir cosas extra como el apartado Scene Utilities para poder editar la escena cómodamente y exportación e importación a CSV. Viendo el sistema de  Unity y el nuestro pensamos que no se queda atrás y hemos hecho un buen trabajo.
 
-# Instalación
-
-Para facilitar la instalación de esta herramienta se ha creado un package de Unity, estos son los pasos para la instalación:
-
-1- Descargar el package del repositorio de Github, en el apartado de Releases.
-
-![STEP](./readme/step.png)
-
-2- Dentro del proyecto en el que queremos utilizar la herramienta, hacer clic derecho en Assets (o buscarlo en el menú de arriba) y seleccionar la opción:
-“Import Package -> Custom Package”.
-
-![STEP1](./readme/step1.png)
-
-3- Buscar la ubicación de la descarga del Package y “Abrir”.
-
-![STEP2](./readme/step2.png)
-
-4- Seleccionar todo y “Import”
-
-![STEP3](./readme/step3.png)
-
-5- Si la instalación ha sido correcta, debería aparecer una opción en la barra del programa con todas las opciones de la herramienta.
-
-![STEP4](./readme/step4.png) -->
