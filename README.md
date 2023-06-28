@@ -5,7 +5,7 @@ Ampliación del proyecto original (Internacionalización). Soporte para localiza
 
 # Resumen 
 
-Crear una herramienta de internacionalización y localización, en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
+El proyecto tiene como objetivo desarrollar una herramienta de internacionalización y localización en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
 
 Por un lado, la internacionalización se hará desde el editor de Unity durante el desarrollo del juego, por otro, la localización ocurrirá durante el tiempo de ejecución del juego mediante un manager global. Este sistema estará basado en un diccionario de claves valor. La herramienta estará integrada en el editor de Unity, desde donde se mostrará toda la información necesaria mediante una serie de ventanas emergentes.
 
@@ -21,7 +21,7 @@ Para entender más a fondo el objetivo de este motor de subtítulos:
 El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 
 - Aspecto visuales:
-	+ La posición de los subtítulos debe ser estática y ubicarse en la parte inferior central de la pantalla. En caso de 
+	+ La posición de los subtítulos debe ser estática y debe ubicarse en la parte inferior central de la pantalla. En caso de 
 	haber efectos sonores se indicará en la parte superior derecha.
 	+ No se deben mostrar más de dos o tres (en caso excepcionales) líneas al mismo tiempo. Además, las líneas deben contener
 	entre 37 y 40 caracteres.
@@ -35,15 +35,15 @@ El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 
 - Identificación de personajes:
 	+ Se usarán distintos colores en el texto de los subtítulos para distinguir entre las voces de los personajes de
-	producto audiovisual
+	producto audiovisual.
 
 - Efectos sonoros:
-	+ Se mostrarán subtítulos para efectos sonoros siempre que no sean evidentes
-	+ Se colocarán en la parte superior derecha de la pantalla, entre paréntesis y mayúscula inicial
+	+ Se mostrarán subtítulos para efectos sonoros siempre que no sean evidentes.
+	+ Se colocarán en la parte superior derecha de la pantalla, entre paréntesis y mayúscula inicial.
 
 - Información contextual y voces en off:
-	+ Se colocarán en la parte inferior izquierda antes de los propios subtítulos
-	+ Se mostrarán en mayúsculas y entre paréntesis
+	+ Se colocarán en la parte inferior izquierda antes de los propios subtítulos.
+	+ Se mostrarán en mayúsculas y entre paréntesis.
 
 - Música y canciones:
 	+ Se colocarán y mostrarán igual que los efectos sonoros
@@ -78,6 +78,34 @@ Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subt
 
 Para ello, he ampliado el sistema de internacionalización de la siguiente manera:
 
+He añadido un nuevo tipo de elemento localizable al sistema. (LanguageAssets.cs)
+
+![TYPE](./readme/type.png)
+
+En concreto, para representar los subítulos en la herramienta, he usado un par(string, string).
+Esto se debe a que, el primero representa la clave y el segundo el nombre del fichero con la configuración de los
+subtítulos. En el apartado del Workflow se explica porque se utiliza un fichero de configuración.
+
+Por lo tanto, al igual que con el resto de elementos localizables, se crea un diccionario. (LanguageAssets.cs)
+
+![DIC](./readme/dic.png)
+
+Además, he creado una clase para representar la ventana del editor donde se añadirán las
+claves y valores de los subtítulos. (EditorSubtitle.cs)
+
+![EDITORSUB](./readme/editorsub.png)
+
+También, en la clase EditorKey (EditorKey.cs) he implementado la lógica de añadir/eliminar claves
+para los subtítulos, así como la de mostrar su ventana en el editor.
+
+A diferencia de los audios (AudioClip) o imágenes (Sprites), no existe ningun objeto/clase en Unity 
+para representar subtítulos, por lo que he implementado la clase Subtitles (Subtitles.cs), aprovechando 
+para añadir en la misma la lógica del motor de subtítulos. Y para que esa clase cuente con los ficheros
+de subtítulos localizados, he creado también, al igual que se hace para el resto de elementos localizables, 
+una clase LocalizedSubtitles (LocalizedSubtitles.cs) que se encarga de proporcionar el fichero de subtítulos 
+ya localizado a la clase Subtitles.
+
+# Workflow
 
 
 <!-- # Resultados obtenidos
