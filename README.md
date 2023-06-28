@@ -3,6 +3,23 @@ Ampliación del proyecto original (Internacionalización). Soporte para localiza
 
 # Pablo Fernández Álvarez
 
+# Motivación y objetivos
+
+Los subtítulos cumplen varias funciones importantes en los videojuegos:
+
+- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esta tarea resulta más sencilla
+que crear archivos de audio adaptados a cada región, con lo que ello supone (contratar actores de doblaje por cada región, por ejemplo). De esta forma, 
+el usuario puede entender el gameplay con los archivos de audio originales, es decir, aquellos creados en la región donde se desarrolló el videojuego, y
+por lo tanto, en el idioma usado en dicha región. Es verdad que el idioma de los audios no tiene porqué coincidir con el idioma de la región donde 
+se desarrolla un videojuego, pero, por lo general, esto es lo que sucede. Esto también se utiliza en películas, series y demás productos audiovisuales.
+
+- Flexibilidad de volumen: Debido a que los subtítulos proporcionan una segunda vía de comunicación, la principal vía (audio) no es imprescindible. 
+De esta forma, el usuario puede ajustar el reducir volumen del audio y seguir entendiendo el gameplay. Esto puede ayudar si el jugador se encuentra en un 
+entorno ruidoso o no dispone de un dispositivo de reproducción de audio ( hay muchas clases de jugadores :-P ).
+
+- Ayuda a usuarios con problemas auditivos: Al proporcionar texto sincronizado con el diálogo y otros elementos de sonido en el juego, los subtítulos 
+permiten que las personas con dificultades para escuchar o con pérdida auditiva puedan seguir y comprender la historia, las conversaciones y los efectos de sonido.
+
 # Resumen 
 
 El proyecto tiene como objetivo desarrollar una herramienta de internacionalización y localización en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
@@ -53,25 +70,6 @@ El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 	+ No afectan al motor de subtitulado ya que el formato del texto debe estar adecuado a la norma.
 
 
-
-# Motivación y objetivos
-
-Los subtítulos cumplen varias funciones importantes en los videojuegos:
-
-- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esta tarea resulta más sencilla
-que crear archivos de audio adaptados a cada región, con lo que ello supone (contratar actores de doblaje por cada región, por ejemplo). De esta forma, 
-el usuario puede entender el gameplay con los archivos de audio originales, es decir, aquellos creados en la región donde se desarrolló el videojuego, y
-por lo tanto, en el idioma usado en dicha región. Es verdad que el idioma de los audios no tiene porqué coincidir con el idioma de la región donde 
-se desarrolla un videojuego, pero, por lo general, esto es lo que sucede. Esto también se utiliza en películas, series y demás productos audiovisuales.
-
-- Flexibilidad de volumen: Debido a que los subtítulos proporcionan una segunda vía de comunicación, la principal vía (audio) no es imprescindible. 
-De esta forma, el usuario puede ajustar el reducir volumen del audio y seguir entendiendo el gameplay. Esto puede ayudar si el jugador se encuentra en un 
-entorno ruidoso o no dispone de un dispositivo de reproducción de audio ( hay muchas clases de jugadores :-P ).
-
-- Ayuda a usuarios con problemas auditivos: Al proporcionar texto sincronizado con el diálogo y otros elementos de sonido en el juego, los subtítulos 
-permiten que las personas con dificultades para escuchar o con pérdida auditiva puedan seguir y comprender la historia, las conversaciones y los efectos de sonido.
-
-
 # Detalles de diseño/implementación
 
 Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subtítulos, audio, imágenes).
@@ -80,20 +78,20 @@ Para ello, he ampliado el sistema de internacionalización de la siguiente maner
 
 He añadido un nuevo tipo de elemento localizable al sistema. (LanguageAssets.cs)
 
-![TYPE](./readme/type.png)
+![TYPE](./readme/type.PNG)
 
-En concreto, para representar los subítulos en la herramienta, he usado un par(string, string).
-Esto se debe a que, el primero representa la clave y el segundo el nombre del fichero con la configuración de los
+En concreto, para representar los subítulos en la herramienta, he usado un pair(string, string).
+Esto se debe, a que el primero representa la clave y el segundo el nombre del fichero con la configuración de los
 subtítulos. En el apartado del Workflow se explica porque se utiliza un fichero de configuración.
 
 Por lo tanto, al igual que con el resto de elementos localizables, se crea un diccionario. (LanguageAssets.cs)
 
-![DIC](./readme/dic.png)
+![DIC](./readme/dic.PNG)
 
 Además, he creado una clase para representar la ventana del editor donde se añadirán las
 claves y valores de los subtítulos. (EditorSubtitle.cs)
 
-![EDITORSUB](./readme/editorsub.png)
+![EDITORSUB](./readme/editorsub.PNG)
 
 También, en la clase EditorKey (EditorKey.cs) he implementado la lógica de añadir/eliminar claves
 para los subtítulos, así como la de mostrar su ventana en el editor.
