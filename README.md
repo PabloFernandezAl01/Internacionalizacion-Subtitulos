@@ -20,7 +20,7 @@ entorno ruidoso o no dispone de un dispositivo de reproducción de audio ( hay m
 - Ayuda a usuarios con problemas auditivos: Al proporcionar texto sincronizado con el diálogo y otros elementos de sonido en el juego, los subtítulos 
 permiten que las personas con dificultades para escuchar o con pérdida auditiva puedan seguir y comprender la historia, las conversaciones y los efectos de sonido.
 
-# Resumen 
+# Resumen de proyecto de internacionalización
 
 El proyecto tiene como objetivo desarrollar una herramienta de internacionalización y localización en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
 
@@ -41,7 +41,7 @@ El motor seguirá la norma española de subtitulado para sordos UNE-153010: 2012
 	+ La posición de los subtítulos debe ser estática y debe ubicarse en la parte inferior central de la pantalla. En caso de 
 	haber efectos sonores se indicará en la parte superior derecha.
 	+ No se deben mostrar más de dos o tres (en caso excepcionales) líneas al mismo tiempo. Además, las líneas deben contener
-	entre 37 y 40 caracteres.
+	como máximo entre 37 y 40 caracteres.
 	+ Los subtítulos deben tener un tamaño de tal forma que sean legibles a 2,5 metros de la pantalla.
 	+ Por cuestiones de visibilidad, está permitido usar un caja para los subtítulos para crear contraste con el color del fondo.
 
@@ -76,13 +76,15 @@ Los subtítulos funcionan como un tipo más de elemento a localizar (texto, subt
 
 Para ello, he ampliado el sistema de internacionalización de la siguiente manera:
 
+## En las clases del Editor:
+
 He añadido un nuevo tipo de elemento localizable al sistema. (LanguageAssets.cs)
 
 ![TYPE](./readme/type.PNG)
 
 En concreto, para representar los subítulos en la herramienta, he usado un pair(string, string).
 Esto se debe, a que el primero representa la clave y el segundo el nombre del fichero con la configuración de los
-subtítulos. En el apartado del Workflow se explica porque se utiliza un fichero de configuración.
+subtítulos. En el apartado del Fichero de Configuración de Subtítulos se explica porque se utiliza este fichero.
 
 Por lo tanto, al igual que con el resto de elementos localizables, se crea un diccionario. (LanguageAssets.cs)
 
@@ -93,15 +95,73 @@ claves y valores de los subtítulos. (EditorSubtitle.cs)
 
 ![EDITORSUB](./readme/editorsub.PNG)
 
-También, en la clase EditorKey (EditorKey.cs) he implementado la lógica de añadir/eliminar claves
-para los subtítulos, así como la de mostrar su ventana en el editor.
+Por último, he ampliado la clase EditorKey (EditorKey.cs) con la lógica de añadir/eliminar claves
+para los subtítulos, así como la de mostrar su ventana en el editor. (EditorKey.cs)
 
-A diferencia de los audios (AudioClip) o imágenes (Sprites), no existe ningun objeto/clase en Unity 
-para representar subtítulos, por lo que he implementado la clase Subtitles (Subtitles.cs), aprovechando 
-para añadir en la misma la lógica del motor de subtítulos. Y para que esa clase cuente con los ficheros
-de subtítulos localizados, he creado también, al igual que se hace para el resto de elementos localizables, 
-una clase LocalizedSubtitles (LocalizedSubtitles.cs) que se encarga de proporcionar el fichero de subtítulos 
-ya localizado a la clase Subtitles.
+## En las clases del usuario: 
+
+Desde el punto de vista del usuario, existen dos clases: 
+
+- Subtitles: Contiene la lógica de la lectura del fichero de subtítulos y de 
+su dibujado en pantalla de manera sincronizada con el audio. En los subtítulos, 
+el elemento localizable es el fichero de subtítulos, el cual se obtiene desde 
+la clase LocalizedSubtitles.
+
+- LocalizedSubtitles: Se encarga de obtener el fichero de subtítulos localizado
+a partir del LocalizationManager. Tras obtener, se lo asigna a la clase Subtitulos.
+
+Por ello, al igual que funciona para otros elementos localizables, ambas componentes
+deben pertencer a la misma entidad. Esto pasa con el audio (AudioSource - LocalizedAudio),
+con el texto (TextMeshPro - LocalizedText) y con las imágenes (Image - LocalizedImage).
+
+- SubtitlesData: Esta clase no es usable por el usuario y simplemente contiene
+los datos necesarios para la implementación de la lógica de la clase Subtitles.
+
+## Fichero de Configuración de Subtítulos
+
+Estos días he estado investigando sobre formatos que se utilizan para representar
+subtítulos en la industria del contenido audiovisual, tanto videojuegos como series,
+películas... etc. He encontrado varios formatos interesantes pero me he quedado con 
+el formato (.srt) SubRib Subtitle. Al parecer es muy utilizado y se adaptaba bien
+a la idea que tenía para implementar el motor de subtítulos.
+
+Un ejemplo de un fichero de subtítulos (.srt):
+
+![SRT](./readme/srt.PNG)
+
+Como se puede ver, es un conjunto de bloques con 3 componentes:
+
+1.- Indice de bloque: Número entero que representa el bloque actual (Comienza en 1, no en 0)
+2.- Tiempos de inicio y fin: Representan los tiempos en los que el texto debe ser mostrado. Formato HH:MM:SS,mmm --> HH:MM:SS,mmm.
+3.- Texto del subtítulo: Contenido del súbtitulo. Debe acotar la norma de súbtitulos:
+		- Deben haber entre 1 y 3 líneas
+		- Cada línea debe contener como máximo 40 caracteres 
+		- Se deben mostrar aproximadamente 15 caracteres por segundo
+		(Esto se calcula dividiendo el número de caracteres total entre el número
+		de segundos del archivo de audio correspondiente)
+		- En caso de ser un subtitulo especial (efectos sonoros, musica o canciones)
+		debe seguir el siguiente formato --> [Subtítulo especial]. Es decir,
+		entre llaves y con la primera letra en mayúscula.
+
+Este formato contiene bastante información pero no la suficiente para representar
+los subtítulos siguiendo todos los requisitos de la norma. Por ejemplo, faltan
+marcar aquellos subtítulos con mala visibilidad o que subtitulo dice cada personaje.
+Para ello, he creado un nuevo fichero para subtítulos (JSON) que contiene esta información.
+
+Un ejemplo de este fichero JSON:
+
+![JSON](./readme/json.PNG)
+
+Se utilizan los indices de bloque para indicar que subtitulos son espciales, que subtitulos
+dice cada personaje... etc.
+
+- Sounds: Array con los indices de bloque de los subtítulos que son especiales.
+- Visibilty: Array con los indices de bloque de los subtítulos que tienen mala visibilidad.
+- NSubtitles: Número de subtitulos total.
+- Characteres: Array de "Speakers". Personajes que participan en una conversación.
+	- Subtitles: Array de indices de bloque de dice el Speaker
+	- Priority: Indice para representar que color de subtitulo pertenece a cada Speaker.
+- File: Fichero (.srt) correspondiente.
 
 # Workflow
 

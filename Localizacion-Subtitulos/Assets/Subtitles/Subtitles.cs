@@ -31,7 +31,7 @@ public class Subtitles : MonoBehaviour
     [SerializeField] UnityEngine.UI.Image subImage;
 
     // Texto en la UI donde van a aparecer los subtitulos especiales
-    // Con subtitulos especiales me refiero a los efectos sonoros, musica y canciones 
+    // Con subtitulos especiales me refiero a los efectos sonoros, musica y canciones
     [SerializeField] Text specialSubtitlesText;
 
     // Recuadro de fondo necesario para representar los subtitulos especiales
@@ -186,10 +186,7 @@ public class Subtitles : MonoBehaviour
             // Se asigna a los subtitulos especiales el texto del subtitulo actual y color de sonidos, musica y canciones
             specialSubtitlesText.text = text;
             specialSubtitlesText.color = SubtitlesColors.soundColor;
-
-            // En caso de ser un subtitulo con poca visibilidad se aplica fondo con un color de contraste
-            if (data.visibility.Contains(idx))
-                specialSubImage.enabled = true;
+            specialSubImage.enabled = true;
 
             return;
         }
@@ -231,6 +228,8 @@ public class Subtitles : MonoBehaviour
 
     public void BeginSubtitles()
     {
+        resetSubtitles();
+
         active = true;
         textChanged = false;
 
