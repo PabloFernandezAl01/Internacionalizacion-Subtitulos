@@ -7,31 +7,24 @@ Ampliación del proyecto original (Internacionalización). Soporte para localiza
 
 Los subtítulos cumplen varias funciones importantes en los videojuegos:
 
-- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esta tarea resulta más sencilla
-que crear archivos de audio adaptados a cada región, con lo que ello supone (contratar actores de doblaje por cada región, por ejemplo). De esta forma, 
-el usuario puede entender el gameplay con los archivos de audio originales, es decir, aquellos creados en la región donde se desarrolló el videojuego, y
-por lo tanto, en el idioma usado en dicha región. Es verdad que el idioma de los audios no tiene porqué coincidir con el idioma de la región donde 
-se desarrolla un videojuego, pero, por lo general, esto es lo que sucede. Esto también se utiliza en películas, series y demás productos audiovisuales.
+- En relación con la internacionalización: Son una herramienta para localizar gameplay a través de la traducción de texto. Esta tarea resulta más sencilla que crear archivos de audio adaptados a cada región, con lo que ello supone (contratar actores de doblaje por cada región, por ejemplo). De esta forma, el usuario puede entender el gameplay con los archivos de audio originales, es decir, aquellos creados en la región donde se desarrolló el videojuego, y por lo tanto, en el idioma usado en dicha región. Es verdad que el idioma de los audios no tiene porqué coincidir con el idioma de la región donde se desarrolla un videojuego, pero, por lo general, esto es lo que sucede. Esto también se utiliza en películas, series y demás productos audiovisuales.
 
-- Flexibilidad de volumen: Debido a que los subtítulos proporcionan una segunda vía de comunicación, la principal vía (audio) no es imprescindible. 
-De esta forma, el usuario puede ajustar el reducir volumen del audio y seguir entendiendo el gameplay. Esto puede ayudar si el jugador se encuentra en un 
-entorno ruidoso o no dispone de un dispositivo de reproducción de audio ( hay muchas clases de jugadores :-P ).
+- Flexibilidad de volumen: Debido a que los subtítulos proporcionan una segunda vía de comunicación, la principal vía (audio) no es imprescindible. De esta forma, el usuario puede ajustar el reducir volumen del audio y seguir entendiendo el gameplay. Esto puede ayudar si el jugador se encuentra en un entorno ruidoso o no dispone de un dispositivo de reproducción de audio.
 
-- Ayuda a usuarios con problemas auditivos: Al proporcionar texto sincronizado con el diálogo y otros elementos de sonido en el juego, los subtítulos 
-permiten que las personas con dificultades para escuchar o con pérdida auditiva puedan seguir y comprender la historia, las conversaciones y los efectos de sonido.
+- Ayuda a usuarios con problemas auditivos: Al proporcionar texto sincronizado con el diálogo y otros elementos de sonido en el juego, los subtítulos permiten que las personas con dificultades para escuchar o con pérdida auditiva puedan seguir y comprender la historia, las conversaciones y los efectos de sonido.
 
 # Resumen de proyecto de internacionalización
 
-El proyecto tiene como objetivo desarrollar una herramienta de internacionalización y localización en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas. La localización e internacionalización son importantes porque permiten a los desarrolladores de videojuegos llegar a audiencias más amplias y diversificadas.
+El proyecto tiene como objetivo desarrollar una herramienta de internacionalización y localización en Unity. La localización implica traducir los textos, diálogos y subtítulos al idioma de destino, así como adaptar los gráficos y elementos culturales, como nombres de personajes o referencias culturales, para asegurar que sean apropiados para el público local. Por otro lado, la internacionalización, que consiste en el diseño y desarrollo de código para que sea fácilmente adaptable un juego a diferentes mercados y culturas.
 
 Por un lado, la internacionalización se hará desde el editor de Unity durante el desarrollo del juego, por otro, la localización ocurrirá durante el tiempo de ejecución del juego mediante un manager global. Este sistema estará basado en un diccionario de claves valor. La herramienta estará integrada en el editor de Unity, desde donde se mostrará toda la información necesaria mediante una serie de ventanas emergentes.
 
 Con este sistema se podrá localizar textos, subtítulos, imágenes y música. Se podrán generar claves nuevas, modificar existentes o eliminar las que no se utilicen.
 
+
 # Subtítulos	
 
-En cuanto a los subtítulos, la idea es crear un motor de subtítulos sencillo, el cuál sepa procesar ficheros con la información de los subtítulos y mostrarlos en pantalla.
-Al igual que con los textos, las imágenes y la música, estos subtítulos serán localizabes.
+En cuanto a los subtítulos, la idea es crear un motor de subtítulos sencillo, el cuál sepa procesar ficheros con la información de los subtítulos y mostrarlos en pantalla. Al igual que con los textos, las imágenes y la música, estos subtítulos serán localizables.
 
 Para entender más a fondo el objetivo de este motor de subtítulos:
 
@@ -82,11 +75,9 @@ He añadido un nuevo tipo de elemento localizable al sistema. (LanguageAssets.cs
 
 ![TYPE](./readme/type.PNG)
 
-En concreto, para representar los subítulos en la herramienta, he usado un pair(string, string).
-Esto se debe, a que el primero representa la clave y el segundo el nombre del fichero con la configuración de los
-subtítulos. En el apartado del Fichero de Configuración de Subtítulos se explica porque se utiliza este fichero.
+En concreto, para representar los subtítulos en la herramienta, he usado un pair(string, string). Esto se debe, a que el primero representa la clave y el segundo el nombre del fichero con la configuración de los subtítulos. En el apartado del Fichero de Configuración de Subtítulos se explica porque se utiliza este fichero.
 
-Por lo tanto, al igual que con el resto de elementos localizables, se crea un diccionario. (LanguageAssets.cs)
+Por lo tanto, al igual que con el resto de los elementos localizables, se crea un diccionario. (LanguageAssets.cs)
 
 ![DIC](./readme/dic.PNG)
 
@@ -119,11 +110,7 @@ los datos necesarios para la implementación de la lógica de la clase Subtitles
 
 ## Fichero de Configuración de Subtítulos
 
-Estos días he estado investigando sobre formatos que se utilizan para representar
-subtítulos en la industria del contenido audiovisual, tanto videojuegos como series,
-películas... etc. He encontrado varios formatos interesantes pero me he quedado con 
-el formato (.srt) SubRib Subtitle. Al parecer es muy utilizado y se adaptaba bien
-a la idea que tenía para implementar el motor de subtítulos.
+Estos días he estado investigando sobre formatos que se utilizan para representar subtítulos en la industria del contenido audiovisual, tanto videojuegos como series, películas... etc. He encontrado varios formatos interesantes, pero me he quedado con el formato (.srt) SubRib Subtitle. Al parecer es muy utilizado y se adaptaba bien a la idea que tenía para implementar el motor de subtítulos.
 
 Un ejemplo de un fichero de subtítulos (.srt):
 
@@ -143,10 +130,7 @@ Como se puede ver, es un conjunto de bloques con 3 componentes:
 	debe seguir el siguiente formato --> [Subtítulo especial]. Es decir,
 	entre llaves y con la primera letra en mayúscula.
 
-Este formato contiene bastante información pero no la suficiente para representar
-los subtítulos siguiendo todos los requisitos de la norma. Por ejemplo, faltan
-marcar aquellos subtítulos con mala visibilidad o que subtítulo pertenece a cada personaje.
-Para ello, he creado un nuevo fichero para subtítulos (JSON) que contiene esta información.
+Este formato contiene bastante información, pero no la suficiente para representar los subtítulos siguiendo todos los requisitos de la norma. Por ejemplo, faltan marcar aquellos subtítulos con mala visibilidad o que subtítulo pertenece a cada personaje. Para ello, he creado un nuevo fichero para subtítulos (JSON) que contiene esta información.
 
 Un ejemplo de este fichero JSON:	
 
@@ -167,11 +151,7 @@ dice cada personaje... etc.
 
 El workflow es parecido al del resto de elementos localizables.
 
-Una vez se tenga el fichero de audio y el fichero de subítulos correspondiente (.srt),
-se debe crear un JSON con la misma forma que el explicado anteriormente.
-Después, en la pestaña del editor Localization/KeyCreator/Audio se debe crear una clave y añadir
-el fichero de audio para el idioma correspondiente. Por otra parte, en la pestaña
-Localization/KeyCreator/Subtitles, se debe escribir el nombre del fichero JSON correspondiente.
+Una vez se tenga el fichero de audio y el fichero de subtítulos correspondiente (.srt), se debe crear un JSON con la misma forma que el explicado anteriormente. Después, en la pestaña del editor Localization/KeyCreator/Audio se debe crear una clave y añadir el fichero de audio para el idioma correspondiente. Por otra parte, en la pestaña Localization/KeyCreator/Subtitles, se debe escribir el nombre del fichero JSON correspondiente.
 
 En la escena, se debe añadir a la misma entidad el componente Subtitles y LocalizedSubtitles:
 
@@ -181,19 +161,19 @@ En la escena, se debe añadir a la misma entidad el componente Subtitles y Local
 
 ## Escena de prueba
 
-En la escena de prueba, hay un audio/grabación de voz por cada idioma,
-(Inglés, Español, Francés, Ruso y Japonés) con su fichero de configuración
-de subtítulos JSON correspondiente. 
+En la escena de prueba, hay un audio/grabación de voz por cada idioma, (Inglés, Español, Francés, Ruso y Japonés) con su fichero de configuración de subtítulos JSON correspondiente.
 
-Se recomienda probar cada audio cambiando el idioma por defecto en la pestaña
-Localizaction/Languages y ejecutando el juego.
+Se recomienda probar cada audio cambiando el idioma por defecto en la pestaña Localizaction/Languages y ejecutando el juego.
 
-Puede que algún subtítulo no este sincronizado a la perfección. He utilizado
-una herramienta para generar .(srt) a partir de un audio pero no es muy precisa.
+Puede que algún subtítulo no este sincronizado a la perfección. He utilizado una herramienta para generar .(srt) a partir de un audio, pero no es muy precisa.
 
 ## Video demostración
 
 https://drive.google.com/file/d/1R3MI83KMqlkSUg_5EtdsAM-l1b3XVs2V/view?usp=sharing
+
+## Enlace al repositorio
+
+https://github.com/PabloFernandezAl01/Internacionalizacion-Subtitulos
 
 # Conclusiones
 
