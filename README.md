@@ -175,6 +175,10 @@ https://drive.google.com/file/d/1R3MI83KMqlkSUg_5EtdsAM-l1b3XVs2V/view?usp=shari
 
 https://github.com/PabloFernandezAl01/Internacionalizacion-Subtitulos
 
+## Enlace a la presentación
+
+https://docs.google.com/presentation/d/1VTznwkibCt-UaOcAnRkYP0J366kKu9nAoLshxvAeqQk/edit?usp=drive_link
+
 # Conclusiones
 
 Como conclusión, el motor que he implementado se adapta muy bien
