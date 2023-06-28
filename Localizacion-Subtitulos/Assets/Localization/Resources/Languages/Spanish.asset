@@ -40,7 +40,7 @@ MonoBehaviour:
   - Key: Anthem
     Value: {fileID: 8300000, guid: 0b7985baa16604448bb48501529664c7, type: 3}
   - Key: Subtitles-Audio
-    Value: {fileID: 0}
+    Value: {fileID: 8300000, guid: 094e52c1ea2a7334e860e0f39d9c14c5, type: 3}
   fonts:
   - Key: New Key
     Value: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
     Value: {fileID: 0}
   subtitles:
   - Key: Example
-    Value: 
+    Value: example-es.json
   extrasInitialised: 1
   extras:
     currencySuffix: 1

@@ -1,0 +1,162 @@
+﻿1
+00:00:07,760 --> 00:00:08,300
+Bonjour!
+
+2
+00:00:08,540 --> 00:00:12,090
+Bonjour! C'est pour déjeuner,
+pour deux personnes.
+
+3
+00:00:12,290 --> 00:00:13,880
+Très bien. Vouz avez
+une réservation?
+
+4
+00:00:14,150 --> 00:00:14,540
+Oui, au nom de Delaure
+
+5
+00:00:16,550 --> 00:00:18,840
+Très bien suivez-moi
+s'il vous plaît. Voilà!
+
+6
+00:00:20,420 --> 00:00:21,420
+Merci.
+
+7
+00:00:21,560 --> 00:00:23,160
+Je vous donne la carte. Vous allez 
+prendre un apéritif pour commencer?
+
+8
+00:00:25,820 --> 00:00:27,150
+Oui volontiers. Un kirsch pour 
+moi et toi chérie?
+
+9
+00:00:30,440 --> 00:00:32,520
+Un cocktail de fruits exotiques
+
+10
+00:00:33,590 --> 00:00:34,098
+Voilà!
+
+11
+00:00:34,220 --> 00:00:35,220
+Merci!
+
+12
+00:00:36,440 --> 00:00:37,220
+Vous avez choisi?
+
+13
+00:00:37,460 --> 00:00:37,880
+Oui, je vais prendre la salade du
+chef au foie gras et l'entrecôte.
+
+14
+00:00:42,267 --> 00:00:47,750
+Et pour moi, le foie gras on entrée 
+et le poisson à la sauce au vin blanc.
+
+15
+00:00:48,470 --> 00:00:49,099
+Très bien! La cuisson point entrecôte :
+bleu, saignante, à point très cuite?
+
+16
+00:00:54,110 --> 00:00:55,250
+à point s'il vous plaît.
+
+17
+00:00:55,580 --> 00:00:56,120
+Très bien et pour les boissons?
+
+18
+00:00:57,590 --> 00:00:59,588
+Une bouteille de vin Rouge
+et une bouteille d'eau minérale
+
+19
+00:00:59,740 --> 00:01:01,340
+Très bien merci... Voilà!
+
+20
+00:01:04,390 --> 00:01:05,703
+C'est bon!
+
+21
+00:01:05,860 --> 00:01:07,490
+Oui, très bon!
+
+22
+00:01:08,170 --> 00:01:08,980
+Vous avez fini?
+
+23
+00:01:09,430 --> 00:01:09,790
+Oui.
+
+24
+00:01:10,330 --> 00:01:12,860
+Pour les dessert, je vous
+donne la carte...
+
+25
+00:01:13,511 --> 00:01:15,246
+Pour moi, la tarte tatin.
+
+26
+00:01:15,491 --> 00:01:16,990
+Et pour moi, juste un café.
+
+27
+00:01:17,200 --> 00:01:19,570
+Un café crème, un café noir?
+
+28
+00:01:19,810 --> 00:01:21,220
+Un café noir s'il vous plaît.
+
+29
+00:01:21,430 --> 00:01:22,430
+Parfait.
+
+30
+00:01:23,380 --> 00:01:24,910
+L'addition s'il vous plaît.
+
+31
+00:01:25,420 --> 00:01:27,100
+Voilà, vous payez comment?
+
+32
+00:01:27,400 --> 00:01:28,506
+Tu as dit liquide?
+
+33
+00:01:28,719 --> 00:01:30,700
+Non je vais payer aver 
+la carte Visa.
+
+34
+00:01:31,210 --> 00:01:32,210
+Merci.
+
+35
+00:01:32,680 --> 00:01:33,910
+On laisse un pouvoir, non?
+
+36
+00:01:34,210 --> 00:01:36,261
+Oui les cinq euro.
+
+37
+00:01:36,580 --> 00:01:37,090
+Merci! Au revoir et a bientôt !
+
+38
+00:01:39,190 --> 00:01:40,190
+Au revoir!

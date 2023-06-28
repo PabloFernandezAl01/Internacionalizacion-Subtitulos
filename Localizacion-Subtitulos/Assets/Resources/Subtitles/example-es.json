@@ -1,0 +1,26 @@
+{
+    "sounds": [1],
+    "visibility" : [1],
+    "nSubtitles": 21,
+    "characters": [
+        {
+            "Speaker1": {
+                "subtitles": [2, 3, 6, 7, 8, 9, 12, 13, 16, 17, 18, 19, 20, 21],
+                "priority" : 0
+            }
+        },
+        {
+            "Speaker2": {
+                "subtitles": [4, 5],
+                "priority" : 1
+            }
+        },
+        {
+            "Speaker3": {
+                "subtitles": [10, 11, 14, 15],
+                "priority" : 2
+            }
+        }
+    ],
+    "file": "example-es.srt"
+}
