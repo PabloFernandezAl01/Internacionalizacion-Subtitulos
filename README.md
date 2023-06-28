@@ -28,7 +28,7 @@ Por un lado, la internacionalización se hará desde el editor de Unity durante 
 
 Con este sistema se podrá localizar textos, subtítulos, imágenes y música. Se podrán generar claves nuevas, modificar existentes o eliminar las que no se utilicen.
 
-## Subtítulos	
+# Subtítulos	
 
 En cuanto a los subtítulos, la idea es crear un motor de subtítulos sencillo, el cuál sepa procesar ficheros con la información de los subtítulos y mostrarlos en pantalla.
 Al igual que con los textos, las imágenes y la música, estos subtítulos serán localizabes.
@@ -191,8 +191,17 @@ Localizaction/Languages y ejecutando el juego.
 Puede que algún subtítulo no este sincronizado a la perfección. He utilizado
 una herramienta para generar .(srt) a partir de un audio pero no es muy precisa.
 
-## Video demostracion
+## Video demostración
+
+https://drive.google.com/file/d/1R3MI83KMqlkSUg_5EtdsAM-l1b3XVs2V/view?usp=sharing
 
 # Conclusiones
+
+Como conclusión, el motor que he implementado se adapta muy bien
+a los requisitos de la norma. Pero gran parte de la calidad de unos
+subtítulos es responsailidad de los archivos (.srt) por lo que
+ahora de subtitular gameplay o cualquier otro producto audiovisual
+es muy importante centrarse en que el subtitulado cumpla las normas
+y esté correctamente sincronizado con el audio.
 
 
